@@ -1,0 +1,10 @@
+{
+  "auto": true,
+  "yd_ocr": false,
+  "my_str": {
+    "app_id": "xxx",
+    "api_ley": "xxx",
+    "secret_key": "xxx"
+  },
+  "debug":false
+}
