@@ -8,30 +8,36 @@ import ttk
 import threading
 import shutil
 import json
-from tkMessageBox  import *
+import subprocess
+
 if sys.version_info[0] == 2:
 
     from Tkinter import *
     from tkFont import Font
     from ttk import *
-    #Usage:showinfo/warning/error,askquestion/okcancel/yesno/retrycancel
+    # Usage:showinfo/warning/error,askquestion/okcancel/yesno/retrycancel
+    import tkMessageBox
     from tkMessageBox import *
 
-    #Usage:f=tkFileDialog.askopenfilename(initialdir='E:/Python')
-    #import tkFileDialog
-    #import tkSimpleDialog
-else:  #Python 3.x
+
+
+    # Usage:f=tkFileDialog.askopenfilename(initialdir='E:/Python')
+    # import tkFileDialog
+    # import tkSimpleDialog
+else:  # Python 3.x
     from tkinter import *
     from tkinter.font import Font
     from tkinter.ttk import *
     from tkinter.messagebox import *
     from tkinter import scrolledtext
-    #import tkinter.filedialog as tkFileDialog
-    #import tkinter.simpledialog as tkSimpleDialog    #askstring()
+    import tkinter.messagebox
+    # import tkinter.filedialog as tkFileDialog
+    # import tkinter.simpledialog as tkSimpleDialog    # askstring()
+
 
 class Application_ui(Frame):
 
-    #这个类仅实现界面生成功能，具体事件处理代码在子类Application中。
+    # 这个类仅实现界面生成功能，具体事件处理代码在子类Application中。
     def __init__(self, master=None):
         Frame.__init__(self, master)
         self.master.title('MDM 测试工具')
@@ -54,7 +60,7 @@ class Application_ui(Frame):
                                                                                                            columnspan=2,sticky=W)
         self.TabStrip1__Tab1Lbl = Label(self.TabStrip1__Tab1, text='当前策略').grid(row=2)
         self.TabStrip1__Tab1e1 = StringVar()
-        self.TabStrip1__Tab1e1.set('C:\\MDMTemp\\Startegy.json')
+        self.TabStrip1__Tab1e1.set('C:\\Program Files (x86)\\mdmgr\\Startegy.json')
         self.TabStrip1__Tab1text = Text(self.TabStrip1__Tab1,width=65,height=16)
         self.TabStrip1__Tab1text.grid(row=2,column=1,columnspan=3,rowspan=1)
         button1 = Button(self.TabStrip1__Tab1, text='嵌入式系统', command=self.Change_to_qrs).grid(row=3, column=1, columnspan=1)
@@ -97,7 +103,16 @@ class Application_ui(Frame):
 
         self.TabStrip1.add(self.TabStrip1__Tab3, text='修改升级文件')
 
-        self.Get_startage()
+        # tab4
+        self.TabStrip1__Tab4 = Frame(self.TabStrip1)
+        self.TabStrip1__Tab4Lb0 = Label(self.TabStrip1__Tab4, text='').grid(row=0)
+        self.TabStrip1__Tab4Lbl = Label(self.TabStrip1__Tab4, text='功能描述：开启驱动签名检测，关闭驱动签名检测').grid(row=1,column=0,columnspan=2,sticky=W)
+
+        button1 = Button(self.TabStrip1__Tab4, text='开启驱动签名检测', command=self.open_detective_qd).grid(row=2, column=1,columnspan=1)
+        button2 = Button(self.TabStrip1__Tab4, text='关闭驱动签名检测', command=self.stop_detective_qd).grid(row=2, column=2, columnspan=1)
+
+        self.TabStrip1.add(self.TabStrip1__Tab4, text='驱动')
+
 
 class Application(Application_ui):
 
@@ -114,8 +129,6 @@ class Application(Application_ui):
                 ss = json.load(f)
             except Exception as e:
                 self.TabStrip1__Tab1text.insert(INSERT, e)
-                #print(e)
-
 
             timeStruct = time.localtime(os.stat(path).st_ctime)
             u_time = time.strftime('%Y-%m-%d %H:%M:%S', timeStruct)
@@ -195,7 +208,7 @@ class Application(Application_ui):
                         else:
                             for i in x['content']['appList']:
                                 self.TabStrip1__Tab1text.insert(INSERT, ' ' + i['packageName'] + '--' + i['name'] + '\n')
-                                #print(i['packageName'] + '--' + i['name'])
+                                # print(i['packageName'] + '--' + i['name'])
             showinfo(title='提示', message="查询成功")
         else:
             self.TabStrip1__Tab1text.insert(INSERT,'不存在策略文件')
@@ -203,10 +216,37 @@ class Application(Application_ui):
     def Change_to_qrs(self):
         self.TabStrip1__Tab1e1.set("Z:\\Program Files (x86)\\MDMTemp\\Startegy.json")
         showinfo(title='提示', message="切换到嵌入式成功")
+        self.Get_startage()
 
     def Change_to_fqrs(self):
-        self.TabStrip1__Tab1e1.set("C:\\MDMTemp\\Startegy.json")
+        self.TabStrip1__Tab1e1.set("C:\\Program Files (x86)\\mdmgr\\Startegy.json")
         showinfo(title='提示', message="切换到非嵌入式成功")
+        self.Get_startage()
+
+    def open_detective_qd(self):
+        print(os.path.curdir)
+        child = subprocess.Popen(os.getcwd()+'\\release\\start.bat', shell=False)
+        if child:
+            a = tkMessageBox.askokcancel('提示', '开启驱动检测成功，是否立即重启电脑？')
+            if a:
+                showinfo(title='提示', message="立即重启电脑！")
+                os.popen('shutdown -r -t 00')
+
+            else:
+                pass
+
+    def stop_detective_qd(self):
+
+        child = subprocess.Popen(os.getcwd()+'\\release\\stop.bat', shell=False)
+        if child:
+            # showinfo(title='提示', message="关闭驱动检测成功")
+            a = tkMessageBox.askokcancel('提示', '关闭驱动检测成功，是否立即重启电脑？')
+            if a:
+                showinfo(title='提示', message="立即重启电脑！")
+                os.popen('shutdown -r -t 00')
+
+            else:
+                pass
 
     def modify_file(self):
         self.TabStrip1__Tab3text.delete(0.0,END)
