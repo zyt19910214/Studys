@@ -1,0 +1,63 @@
+;;;
+;;; Copyright (c) Microsoft Corporation. All rights reserved
+;;;
+;;; Abstract:
+;;;    Traffic Inspect Callout sample driver install configuration.
+;;;
+
+[Version]
+    Signature   = "$Windows NT$"
+    Class       = WFPCALLOUTS
+    ClassGuid   = {57465043-616C-6C6F-7574-5F636C617373}
+    Provider    = %ProviderString%
+    CatalogFile = MdmNetFilter.cat
+    DriverVer = 08/16/2018,11.24.39.344
+
+[SourceDisksNames]
+   1 = %MdmNetFilterDisk%,,,""
+
+[SourceDisksFiles]
+   MdmNetFilter.sys = 1,,
+
+[DestinationDirs]
+    DefaultDestDir      = 12                                               ; %WinDir%\System32\Drivers
+    MdmNetFilter.DriverFiles = 12                                               ; %WinDir%\System32\Drivers
+
+[DefaultInstall]
+    OptionDesc = %MdmNetFilterServiceDesc%
+    CopyFiles  = MdmNetFilter.DriverFiles
+
+[DefaultInstall.Services]
+    AddService = %MdmNetFilterServiceName%,,MdmNetFilter.Service
+
+[DefaultUninstall]
+    DelFiles = MdmNetFilter.DriverFiles
+
+[DefaultUninstall.Services]
+    DelService = %MdmNetFilterServiceName%,0x200                                ; SPSVCINST_STOPSERVICE
+    DelReg     = MdmNetFilter.DelRegistry
+
+[MdmNetFilter.DriverFiles]
+    MdmNetFilter.sys,,,0x00000040                                               ; COPYFLG_OVERWRITE_OLDER_ONLY
+
+[MdmNetFilter.Service]
+    DisplayName   = %MdmNetFilterServiceName%
+    Description   = %MdmNetFilterServiceDesc%
+    ServiceType   = 1                                                      ; SERVICE_KERNEL_DRIVER
+    StartType     = 3                                                      ; SERVICE_DEMAND_START
+    ErrorControl  = 1                                                      ; SERVICE_ERROR_NORMAL
+    ServiceBinary = %12%\MdmNetFilter.sys                                       ; %WinDir%\System32\Drivers\Inspect.sys
+    AddReg        = MdmNetFilter.AddRegistry
+
+[MdmNetFilter.AddRegistry]
+    HKR,"Parameters","BlockTraffic",0x00010001,"0"                         ; FLG_ADDREG_TYPE_DWORD
+    HKR,"Parameters","RemoteAddressToInspect",0x00000000,"10.0.0.1"        ; FLG_ADDREG_TYPE_SZ
+
+[MdmNetFilter.DelRegistry]
+    HKR,"Parameters",,,
+
+[Strings]
+    ProviderString     = "TODO-Set-Provider"
+	MdmNetFilterDisk        = "Traffic Inspect Installation Disk"
+    MdmNetFilterServiceDesc = "Traffic Inspect Callout Driver"
+    MdmNetFilterServiceName = "MdmNetFilter"
