@@ -130,7 +130,7 @@ class Application(Application_ui):
             except Exception as e:
                 self.TabStrip1__Tab1text.insert(INSERT, e)
 
-            timeStruct = time.localtime(os.stat(path).st_ctime)
+            timeStruct = time.localtime(os.stat(path).st_mtime)
             u_time = time.strftime('%Y-%m-%d %H:%M:%S', timeStruct)
             # print(u"文件修改时间："+u_time)
             self.TabStrip1__Tab1text.insert(INSERT,u"【文件修改时间】："+u_time+u'\n')
