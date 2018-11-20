@@ -9,6 +9,7 @@ import threading
 import shutil
 import json
 import subprocess
+from dll_learn import dirver
 
 if sys.version_info[0] == 2:
 
@@ -18,8 +19,6 @@ if sys.version_info[0] == 2:
     # Usage:showinfo/warning/error,askquestion/okcancel/yesno/retrycancel
     import tkMessageBox
     from tkMessageBox import *
-
-
 
     # Usage:f=tkFileDialog.askopenfilename(initialdir='E:/Python')
     # import tkFileDialog
@@ -110,7 +109,26 @@ class Application_ui(Frame):
 
         button1 = Button(self.TabStrip1__Tab4, text='开启驱动签名检测', command=self.open_detective_qd).grid(row=2, column=1,columnspan=1)
         button2 = Button(self.TabStrip1__Tab4, text='关闭驱动签名检测', command=self.stop_detective_qd).grid(row=2, column=2, columnspan=1)
+        self.TabStrip1__Tab4Lb2 = Label(self.TabStrip1__Tab4, text='功能描述：驱动管理').grid(row=3, column=0,
+                                                                                                  columnspan=2,
+                                                                                                  sticky=W)
+        button3 = Button(self.TabStrip1__Tab4, text='安装Mdm所有驱动', command=self.install_driver).grid(row=4, column=1,columnspan=1)
+        button4 = Button(self.TabStrip1__Tab4, text='卸载Mdm所有驱动', command=self.uninstall_driver).grid(row=4, column=2,columnspan=1)
+        button5 = Button(self.TabStrip1__Tab4, text='启用Mdm所有驱动', command=self.start_driver).grid(row=5, column=1,columnspan=1)
+        button6 = Button(self.TabStrip1__Tab4, text='停止Mdm所有驱动', command=self.stop_driver).grid(row=5, column=2,columnspan=1)
+        button7 = Button(self.TabStrip1__Tab4, text='开启文件保护', command=self.start_file_protect).grid(row=6, column=1,
+                                                                                                 columnspan=1)
+        button8 = Button(self.TabStrip1__Tab4, text='关闭文件保护', command=self.stop_file_protect).grid(row=6, column=2,
+                                                                                                columnspan=1)
 
+        self.TabStrip1__Tab4Lb2 = Label(self.TabStrip1__Tab4, text='功能描述：一键卸载Mdm').grid(row=7, column=0,
+                                                                                     columnspan=2,
+                                                                                     sticky=W)
+
+        button8 = Button(self.TabStrip1__Tab4, text='pc一键卸载', command=self.unistall_mdm).grid(row=8, column=1,
+                                                                                                   columnspan=1)
+        button8 = Button(self.TabStrip1__Tab4, text='嵌入式一键卸载', command=self.unistall_mdm2).grid(row=8, column=2,
+                                                                                              columnspan=1)
         self.TabStrip1.add(self.TabStrip1__Tab4, text='驱动')
 
 
@@ -247,6 +265,103 @@ class Application(Application_ui):
 
             else:
                 pass
+
+    def install_driver(self):
+        if dirver().installDriver() == 0:
+            showinfo(title='提示', message="安装驱动成功！")
+        else:
+            showinfo(title='提示', message="安装驱动失败！")
+
+
+    def uninstall_driver(self):
+        if dirver().uninstallDriver() == 0:
+            showinfo(title='提示', message="卸载驱动成功！")
+        else:
+            showinfo(title='提示', message="卸载驱动失败！")
+
+
+    def start_driver(self):
+        if dirver().startDrivers() == 0:
+            showinfo(title='提示', message="启动驱动成功！")
+        else:
+            showinfo(title='提示', message="启动驱动失败！")
+
+    def stop_driver(self):
+        if dirver().stopDrivers() == 0:
+            showinfo(title='提示', message="停止驱动成功！")
+        else:
+            showinfo(title='提示', message="停止驱动失败！")
+
+
+    def start_file_protect(self):
+        if dirver().enable_file_protect() == 0:
+            showinfo(title='提示', message="开启文件保护成功！")
+        else:
+            showinfo(title='提示', message="开启文件保护失败！")
+
+    def stop_file_protect(self):
+        if dirver().disable_file_protect() == 0 :
+            showinfo(title='提示', message="关闭文件保护成功！")
+        else:
+            showinfo(title='提示', message="关闭文件保护失败！")
+
+    def unistall_mdm(self):
+
+        a = tkMessageBox.askokcancel('提示', '确认卸载Mdm？')
+        if a:
+            if dirver().stopDrivers() == 0:
+                if dirver().uninstallDriver() == 0:
+                    path1 = "C:\\Program Files (x86)\\mdmgr\\setup.ini"
+                    if os.path.exists(path1):
+                        os.remove(path1)
+                    else:
+                        pass
+                    shutil.copyfile('setup.ini', path1)
+                    # showinfo(title='提示', message="修改文件成功！")
+                    path = os.getcwd()
+
+                    s = threading.Thread(target=self.run2)
+                    s.start()
+
+
+                else:
+                    showinfo(title='提示', message="卸载驱动失败！")
+            else:
+                showinfo(title='提示', message="停止驱动失败！")
+
+        else:
+            pass
+
+    def run2(self):
+        os.system('"C:\\Program Files (x86)\\mdmgr\\MDMUninstall.exe"')
+
+
+    def unistall_mdm2(self):
+
+        a = tkMessageBox.askokcancel('提示', '确认卸载Mdm？')
+        if a:
+            if dirver().stopDrivers() == 0:
+                if dirver().uninstallDriver() == 0:
+                    path1 = "Z:\\Program Files (x86)\\MDMTemp\\setup.ini"
+                    if os.path.exists(path1):
+                        os.remove(path1)
+                    else:
+                        pass
+                    shutil.copyfile('setup.ini', path1)
+                    # showinfo(title='提示', message="修改文件成功！")
+                    path = os.getcwd()
+
+                    s = threading.Thread(target=self.run2)
+                    s.start()
+
+
+                else:
+                    showinfo(title='提示', message="卸载驱动失败！")
+            else:
+                showinfo(title='提示', message="停止驱动失败！")
+
+        else:
+            pass
 
     def modify_file(self):
         self.TabStrip1__Tab3text.delete(0.0,END)
