@@ -1,0 +1,180 @@
+{
+  "uid" : "471ecaeb341ca4fb",
+  "name" : "TestLogin.test_login02[admin20-123456-\\u5bc6\\u7801\\u9519\\u8bef,\\u8bf7\\u91cd\\u65b0\\u8f93\\u5165]",
+  "fullName" : "test_suite.test_case.web_test_case.login_web.TestLogin.test_login02[admin20-123456-\\u5bc6\\u7801\\u9519\\u8bef,\\u8bf7\\u91cd\\u65b0\\u8f93\\u5165]",
+  "historyId" : "19d32e9b20db9e578585bb930d32e058",
+  "time" : {
+    "start" : 1523417772647,
+    "stop" : 1523417783638,
+    "duration" : 10991
+  },
+  "description" : "错误登录，有提示信息",
+  "descriptionHtml" : "<p>错误登录，有提示信息</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "清空用户名输入框",
+      "time" : {
+        "start" : 1523417778404,
+        "stop" : 1523417779045,
+        "duration" : 641
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "用户名输入框输入：admin20",
+      "time" : {
+        "start" : 1523417779045,
+        "stop" : 1523417779198,
+        "duration" : 153
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "清空密码输入框",
+      "time" : {
+        "start" : 1523417780198,
+        "stop" : 1523417780289,
+        "duration" : 91
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "密码输入框输入：123456",
+      "time" : {
+        "start" : 1523417780289,
+        "stop" : 1523417780416,
+        "duration" : 127
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "点击登录按钮",
+      "time" : {
+        "start" : 1523417781416,
+        "stop" : 1523417781550,
+        "duration" : 134
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "等待密码错误,请重新输入提示信息",
+      "time" : {
+        "start" : 1523417783551,
+        "stop" : 1523417783638,
+        "duration" : 87
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 6,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "登录功能"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "host",
+    "value" : "XA-XA-00673A"
+  }, {
+    "name" : "issue",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "story",
+    "value" : "错误登录"
+  }, {
+    "name" : "testId",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "thread",
+    "value" : "7084-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testClass",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestLogin.test_login02[admin20-123456-\\u5bc6\\u7801\\u9519\\u8bef,\\u8bf7\\u91cd\\u65b0\\u8f93\\u5165]"
+  }, {
+    "name" : "package",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "issue"
+  }, {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "tms"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "471ecaeb341ca4fb.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,45 @@
+<view class='bgInfo'>
+<!-- 选项卡 -->
+<view class='tapCard'>
+  <view class="addCard {{cardNum === 1 ? 'tapOn':'tapOff'}} " bindtap='tapTo1'>添加水果</view>
+  <view class="delCard {{cardNum === 2 ? 'tapOn':'tapOff'}} " bindtap='tapTo2'>删除水果</view>
+  <view class="deliver {{cardNum === 3 ? 'tapOn':'tapOff'}} " bindtap='tapTo3'>送货管理</view>
+</view>
+
+<!-- 添加水果 -->
+<view class='addFruit' wx:if="{{cardNum === 1}}">
+  <view bindtap='selectImg' class='selectImg'>选择图片</view>
+  <view class='InfoBottom'></view>
+  <view class='fruit-board'>
+    <form bindsubmit='addFruitInfo' bindreset='resetFruitInfo'>
+      <view>水果信息</view>
+      <view style='height:40rpx;'></view>
+      <input name='fruitID' placeholder='水果编号'></input>
+      <input name='name' placeholder='水果名称'></input>
+      <input name='iLike' placeholder='点赞数'></input>
+      <input name='price' placeholder='价格'></input>
+      <input name='unit' placeholder='单位'></input>
+      <input name='purchaseFreq' placeholder='访问量'></input>
+      <textarea name='detail' placeholder='详细信息'></textarea>
+      <!-- <textarea name='service' placeholder='售后服务'></textarea> -->
+      <input name='myClass' placeholder='今日特惠（1或0）'></input>
+      <input name='recommend' placeholder='店主推荐（1或0）'></input>
+      <view class='btn'>
+        <button form-type='submit'>确定</button>
+        <button form-type='reset'>重置</button>
+      </view>
+    </form>
+  </view>
+  <view class='InfoBottom'></view>
+</view>
+
+<!-- 删除水果 -->
+<view class='deleteFruit' wx:if="{{cardNum === 2}}">
+  <view class='myInput'>
+    <input placeholder='输入要删除水果的名称' bindinput='getDelFruitId'></input>
+  </view>
+  <view bindtap='deleteFruit' class='myBtn'>删除</view>
+</view>
+
+
+</view>

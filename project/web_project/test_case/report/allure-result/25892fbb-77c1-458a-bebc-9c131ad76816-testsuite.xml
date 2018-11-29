@@ -1,0 +1,62 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1542867331970" stop="1542867332002">
+  <name>project.web_project.test_case</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1542867331970" status="passed" stop="1542867331970">
+      <name>test_001.test_answer</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13112-MainThread"/>
+        <label name="host" value="DESKTOP-GNJEJ60"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython2"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1542867331970" status="failed" stop="1542867332002">
+      <name>test_002.test_answer</name>
+      <failure>
+        <message>AssertionError: assert 4 == 5
+ +  where 4 = func(3)</message>
+        <stack-trace>def test_answer():
+&gt;       assert func(3) == 5
+E       assert 4 == 5
+E        +  where 4 = func(3)
+
+test_002.py:9: AssertionError</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13112-MainThread"/>
+        <label name="host" value="DESKTOP-GNJEJ60"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython2"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1542867332002" status="failed" stop="1542867332002">
+      <name>test_003.test_answer</name>
+      <failure>
+        <message>AssertionError: assert 4 == 5
+ +  where 4 = func(3)</message>
+        <stack-trace>def test_answer():
+&gt;       assert func(3) == 5
+E       assert 4 == 5
+E        +  where 4 = func(3)
+
+test_003.py:9: AssertionError</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13112-MainThread"/>
+        <label name="host" value="DESKTOP-GNJEJ60"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython2"/>
+      </labels>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>

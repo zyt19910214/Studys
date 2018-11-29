@@ -1,0 +1,150 @@
+{
+  "uid" : "942b5bd69b8d5944",
+  "name" : "TestLogin.test_login04[111111-1-type-text]",
+  "fullName" : "test_suite.test_case.web_test_case.login_web.TestLogin.test_login04[111111-1-type-text]",
+  "historyId" : "de1f7e63cead398cd0076bb40829c005",
+  "time" : {
+    "start" : 1523417836126,
+    "stop" : 1523417844863,
+    "duration" : 8737
+  },
+  "description" : "密码明文显示",
+  "descriptionHtml" : "<p>密码明文显示</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "清空密码输入框",
+      "time" : {
+        "start" : 1523417841850,
+        "stop" : 1523417842494,
+        "duration" : 644
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "密码输入框输入：111111",
+      "time" : {
+        "start" : 1523417842494,
+        "stop" : 1523417842669,
+        "duration" : 175
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "点击show按钮",
+      "time" : {
+        "start" : 1523417843703,
+        "stop" : 1523417843812,
+        "duration" : 109
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "获取登录密码框的属性：type",
+      "time" : {
+        "start" : 1523417844814,
+        "stop" : 1523417844863,
+        "duration" : 49
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 4,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "登录功能"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "host",
+    "value" : "XA-XA-00673A"
+  }, {
+    "name" : "issue",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "story",
+    "value" : "密码框明密文显示"
+  }, {
+    "name" : "testId",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "thread",
+    "value" : "7084-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testClass",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestLogin.test_login04[111111-1-type-text]"
+  }, {
+    "name" : "package",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "issue"
+  }, {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "tms"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "trivial",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "942b5bd69b8d5944.json",
+  "parameterValues" : [ ]
+}

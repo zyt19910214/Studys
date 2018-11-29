@@ -1,0 +1,29 @@
+﻿# 基本信息，如环境、项目名称、安装路径等
+base:
+ report: 警视PC自动化测试报告
+ APP: 警视PC版本
+ OS: win7
+ path: path=>C:\Program Files (x86)\PoliceVP\PoliceVP.exe
+
+# 登录用户信息
+loginuser:
+  username: admin20 
+  password: '111111'
+  wrongUN: admin123t
+  wrongPW: '123456'
+  wrongPWMsg: 密码错误,请重新输入
+  wrongUNMsg: 账号错误,请重新输入
+  Less_6: '12345'
+
+# 登录页面所需要的数据
+loginpage:
+  loginbtnabN: class
+  loginbtnabA: grey-button login-button
+  loginbtnabL: grey-button login-button active-button
+  passwordN: type
+  passwordT: text
+  passwordP: password
+
+#所有toast信息文本
+toast:
+  forgetPW: 忘记密码，请与管理员联系

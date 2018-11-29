@@ -1,0 +1,120 @@
+{
+  "uid" : "5801e867ee0cf627",
+  "name" : "TestLogin.test_login05",
+  "fullName" : "test_suite.test_case.web_test_case.login_web.TestLogin.test_login05",
+  "historyId" : "dca7cd7e6496187a48e78f517de212dd",
+  "time" : {
+    "start" : 1523417860908,
+    "stop" : 1523417869435,
+    "duration" : 8527
+  },
+  "description" : "忘记密码提示",
+  "descriptionHtml" : "<p>忘记密码提示</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "点击忘记密码",
+      "time" : {
+        "start" : 1523417866694,
+        "stop" : 1523417867370,
+        "duration" : 676
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "获取toast提示信息：忘记密码，请与管理员联系",
+      "time" : {
+        "start" : 1523417869371,
+        "stop" : 1523417869435,
+        "duration" : 64
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "登录功能"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "host",
+    "value" : "XA-XA-00673A"
+  }, {
+    "name" : "issue",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "story",
+    "value" : "忘记密码"
+  }, {
+    "name" : "testId",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "thread",
+    "value" : "7084-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testClass",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestLogin.test_login05"
+  }, {
+    "name" : "package",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "issue"
+  }, {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "tms"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "trivial",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5801e867ee0cf627.json",
+  "parameterValues" : [ ]
+}

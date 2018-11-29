@@ -316,7 +316,7 @@ class Application(Application_ui):
                         os.remove(path1)
                     else:
                         pass
-                    shutil.copyfile('setup.ini', path1)
+                    shutil.copyfile(os.getcwd()+'\\release\\setup.ini', path1)
                     # showinfo(title='提示', message="修改文件成功！")
                     path = os.getcwd()
 
@@ -347,7 +347,7 @@ class Application(Application_ui):
                         os.remove(path1)
                     else:
                         pass
-                    shutil.copyfile('setup.ini', path1)
+                    shutil.copyfile(os.getcwd()+'\\release\\setup.ini', path1)
                     # showinfo(title='提示', message="修改文件成功！")
                     path = os.getcwd()
 

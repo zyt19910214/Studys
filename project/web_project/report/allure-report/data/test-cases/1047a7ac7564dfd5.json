@@ -1,0 +1,165 @@
+{
+  "uid" : "1047a7ac7564dfd5",
+  "name" : "TestLogin.test_login03[admin20-111111-class-grey-button login-button active-button]",
+  "fullName" : "test_suite.test_case.web_test_case.login_web.TestLogin.test_login03[admin20-111111-class-grey-button login-button active-button]",
+  "historyId" : "fbdb86629362bfe1e23774d59b79f77c",
+  "time" : {
+    "start" : 1523417824272,
+    "stop" : 1523417833053,
+    "duration" : 8781
+  },
+  "description" : "用户名或密码小于6位，登录按钮置灰",
+  "descriptionHtml" : "<p>用户名或密码小于6位，登录按钮置灰</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "清空用户名输入框",
+      "time" : {
+        "start" : 1523417830043,
+        "stop" : 1523417830595,
+        "duration" : 552
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "用户名输入框输入：admin20",
+      "time" : {
+        "start" : 1523417830595,
+        "stop" : 1523417830739,
+        "duration" : 144
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "清空密码输入框",
+      "time" : {
+        "start" : 1523417831769,
+        "stop" : 1523417831851,
+        "duration" : 82
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "密码输入框输入：111111",
+      "time" : {
+        "start" : 1523417831851,
+        "stop" : 1523417831958,
+        "duration" : 107
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "获取登录按钮的属性：class",
+      "time" : {
+        "start" : 1523417832996,
+        "stop" : 1523417833053,
+        "duration" : 57
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 5,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "登录功能"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "host",
+    "value" : "XA-XA-00673A"
+  }, {
+    "name" : "issue",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "story",
+    "value" : "输入信息小于6位，登录按钮置灰"
+  }, {
+    "name" : "testId",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "thread",
+    "value" : "7084-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testClass",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestLogin.test_login03[admin20-111111-class-grey-button login-button active-button]"
+  }, {
+    "name" : "package",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "issue"
+  }, {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "tms"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "trivial",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1047a7ac7564dfd5.json",
+  "parameterValues" : [ ]
+}

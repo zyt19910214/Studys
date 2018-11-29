@@ -1,0 +1,10 @@
+[ {
+  "values" : [ "警视PC版本" ],
+  "name" : "APP"
+}, {
+  "values" : [ "win7" ],
+  "name" : "hostname"
+}, {
+  "values" : [ "警视PC自动化测试报告" ],
+  "name" : "report"
+} ]

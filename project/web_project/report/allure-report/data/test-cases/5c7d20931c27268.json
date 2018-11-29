@@ -1,0 +1,165 @@
+{
+  "uid" : "5c7d20931c27268",
+  "name" : "TestLogin.test_login04[111111-2-type-password]",
+  "fullName" : "test_suite.test_case.web_test_case.login_web.TestLogin.test_login04[111111-2-type-password]",
+  "historyId" : "8317ea45e283f2285b4dcf5ca78d41ac",
+  "time" : {
+    "start" : 1523417847926,
+    "stop" : 1523417857834,
+    "duration" : 9908
+  },
+  "description" : "密码明文显示",
+  "descriptionHtml" : "<p>密码明文显示</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "清空密码输入框",
+      "time" : {
+        "start" : 1523417853686,
+        "stop" : 1523417854322,
+        "duration" : 636
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "密码输入框输入：111111",
+      "time" : {
+        "start" : 1523417854322,
+        "stop" : 1523417854496,
+        "duration" : 174
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "点击show按钮",
+      "time" : {
+        "start" : 1523417855540,
+        "stop" : 1523417855650,
+        "duration" : 110
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "点击show按钮",
+      "time" : {
+        "start" : 1523417856679,
+        "stop" : 1523417856777,
+        "duration" : 98
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "获取登录密码框的属性：type",
+      "time" : {
+        "start" : 1523417857799,
+        "stop" : 1523417857834,
+        "duration" : 35
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 5,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "登录功能"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "host",
+    "value" : "XA-XA-00673A"
+  }, {
+    "name" : "issue",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "story",
+    "value" : "密码框明密文显示"
+  }, {
+    "name" : "testId",
+    "value" : "http://192.168.9.240:82/pro/bug-view-30214.html"
+  }, {
+    "name" : "thread",
+    "value" : "7084-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testClass",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestLogin.test_login04[111111-2-type-password]"
+  }, {
+    "name" : "package",
+    "value" : "test_suite.test_case.web_test_case.login_web"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "issue"
+  }, {
+    "name" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "url" : "http://192.168.9.240:82/pro/bug-view-30214.html",
+    "type" : "tms"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "trivial",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5c7d20931c27268.json",
+  "parameterValues" : [ ]
+}
