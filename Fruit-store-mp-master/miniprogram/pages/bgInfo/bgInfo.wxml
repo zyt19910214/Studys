@@ -3,7 +3,7 @@
 <view class='tapCard'>
   <view class="addCard {{cardNum === 1 ? 'tapOn':'tapOff'}} " bindtap='tapTo1'>添加水果</view>
   <view class="delCard {{cardNum === 2 ? 'tapOn':'tapOff'}} " bindtap='tapTo2'>删除水果</view>
-  <view class="deliver {{cardNum === 3 ? 'tapOn':'tapOff'}} " bindtap='tapTo3'>送货管理</view>
+  <view class="deliver {{cardNum === 3 ? 'tapOn':'tapOff'}} " bindtap='tapTo3'>添加分类</view>
 </view>
 
 <!-- 添加水果 -->
@@ -41,5 +41,25 @@
   <view bindtap='deleteFruit' class='myBtn'>删除</view>
 </view>
 
+
+
+<!-- 商品分类 -->
+<view class='addFruit' wx:if="{{cardNum === 3}}">
+
+  <view class='fruit-board'>
+    <form bindsubmit='addTypeInfo' bindreset='resetTypeInfo'>
+      <view>分类信息</view>
+      <view style='height:40rpx;'></view>
+      <input name='name' placeholder='分类名称'></input>
+      <input name='myclass' placeholder='排序号'></input>
+   
+      <view class='btn'>
+        <button form-type='submit'>添加</button>
+        <button form-type='reset'>重置</button>
+      </view>
+    </form>
+  </view>
+  <view class='InfoBottom'></view>
+</view>
 
 </view>

@@ -1,40 +1,31 @@
 <view class="main">
-    <view class="header">
-        <!-- <image src="{{thumb}}" class="thumb"></image> -->
-        <view class="thumb">
-          <open-data type="userAvatarUrl"></open-data>
-        </view>
-        <view class='nickname'>
-          <open-data type="userNickName"></open-data>
-        </view>
-        <!-- <text class="nickname">{{nickname}}</text> -->
+    <!--展示商铺信息 -->
+    
+    <image src="../../images/icon/timg3.jpg" class="slide-image" width="750rpx" height="500rpx" mode='aspectFill'/>
+    <view class="title">
+      AO奥品汇义堂店欢迎您
     </view>
+    <view class="board">
+      <view class="board-item">
+        <image src="../../images/icon/fruit.png" />
+        <text>山东省临沂市义堂路 AO奥品汇义堂店</text>
+      </view>
+       <view class="board-item">
+        <image src="../../images/icon/fruit.png" />
+        <text>联系电话：17629298189</text>
+      </view>
+      <view class="board-item">
+        <image src="../../images/icon/like.png" />
+        <text>店铺介绍：</text>
+      </view>
+    </view>
+
     <!-- 后台管理 -->
     <view class="bgInfo {{openid}}" bindtap='goToBgInfo' hidden="{{!(isAdmin >= 0)}}">后台管理</view>
-    <view class="address-box">
-        <view class="address-manage">
-            <navigator url="/pages/address/address">地址管理</navigator>
-        </view>
-        <view wx:if="{{hasAddress}}" class="address-list">
-            <view>{{address.name}}</view>
-            <view>{{address.phone}}</view>
-            <view>{{address.detail}}</view>
-        </view>
-    </view>
-    <view class="orders-box">
-        <view class="orders">我的订单</view>
-        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
-            <view class="orders-number">订单编号：{{item.number}}</view>
-            <view class="orders-detail">
-                <image src="{{item.thumb}}"></image>
-                <view class="">{{item.name}}</view>
-                <view class="">{{item.count}}</view>
-                <text class="orders-status">{{item.status}}</text>
-            </view>
-            <view class="orders-footer">
-                <text>实付：￥{{item.money}}</text>
-                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
-            </view>
-        </view>
+      <!-- 底部 -->
+    <view class='homeBottom'>
+      <view class='bottomLine'></view>
+      <view class='bottomWord'>品质消费,好而不贵。</view>
+      <view class='bottomLine'></view>
     </view>
 </view>

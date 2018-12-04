@@ -40,10 +40,10 @@ Page({
   getOpenid() {
     var that = this;
     wx.cloud.callFunction({
-      name: 'add',
+      name: 'login',
       complete: res => {
-        console.log('云函数获取到的openid: ', res.result.openId)
-        var openid = res.result.openId;
+        console.log('云函数获取到的openid: ', res.result.openid)
+        var openid = res.result.openid;
         var isAdmin = null;
         that.setData({
           openid: openid,

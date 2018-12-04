@@ -12,10 +12,9 @@ App({
 
     this.globalData = {
       cloudRoot : "clo140d-voyz-cloud-86f82a/",
-      carts:[],  //购物车
       tmpNum: 0,
       tempFilePaths: "",
-      admin:["Mr.Voyz"],
+      admin:["Aoph"],
       openId: null,
       appid: 'wxbdafae5940624214',
       mch_id: '1519277861',
@@ -25,31 +24,27 @@ App({
 
   // --------------常用----------------
 
-  // 判断购物车中是否有重复后添加购物车
-  isNotRepeteToCart: function (newCartItem) {
-    var self = this
-    var isRepete = function() {
-      var p = new Promise((resolve, reject) => {
-        var flag = false
-        self.globalData.carts.forEach((v) => {
-          if (v._id === newCartItem._id) {
-            flag = true
-          }
-        })
-        resolve(flag)
-      })
-      return p
-    }
-    isRepete().then((flag) => {
-      if(flag) {
-        wx.showToast({
-          title: '已经添加过了~',
-        })
+  // 判断是否已收藏
+  isNotRepeteToLove: function (item) {
+
+    this.getInfoWhere('love', { id:item.id,_openid:item._openid},
+      e => {
+        if (e.data.length != 0) {
+          wx.showToast({
+            title: '收藏过啦！',
+          })
+
+        } else {
+          // 保存收藏
+          this.addRowToSet('love', { id: item.id }, e1 => {
+            console.log(e1)
+            wx.showToast({
+              title: '已收藏',
+            })
+          })
+        }
       }
-      else{
-        this.globalData.carts.push(newCartItem)
-      }
-    })
+    )
   },
 
   // 随机数生成函数

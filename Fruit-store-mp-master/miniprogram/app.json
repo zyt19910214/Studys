@@ -1,15 +1,12 @@
 {
   "cloud": true,
   "pages": [
+    "pages/authentic/index",
     "pages/homepage/homepage",
-    "pages/bgManage/bgManage",
     "pages/bgInfo/bgInfo",
     "pages/cart/cart",
     "pages/me/me",
-    "pages/detail/detail",
-    "pages/pay/pay",
-    "pages/address/address",
-    "pages/orders/orders"
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundColor": "#F0F0F0",
@@ -25,19 +22,19 @@
     "list": [
       {
         "pagePath": "pages/homepage/homepage",
-        "text": "水果",
+        "text": "商品展示",
         "iconPath": "images/tabBar/homepage-sel.png",
         "selectedIconPath": "images/tabBar/homepage.png"
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "购物车",
+        "text": "收藏",
         "iconPath": "images/tabBar/cart-sel.png",
         "selectedIconPath": "images/tabBar/cart.png"
       },
       {
         "pagePath": "pages/me/me",
-        "text": "我的",
+        "text": "店铺信息",
         "iconPath": "images/tabBar/me-sel.png",
         "selectedIconPath": "images/tabBar/me.png"
       }

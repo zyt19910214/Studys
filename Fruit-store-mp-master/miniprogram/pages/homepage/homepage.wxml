@@ -5,7 +5,7 @@
 <mySearch></mySearch>
 
 <!-- 轮播图 -->
-<view style='height:500rpx;width:100%'> 
+<view style='height:510rpx;width:100%'> 
   <swiper></swiper>
 </view>
 
@@ -40,9 +40,13 @@
             <text>￥{{item.price}}</text>
             <text class='unit'>/{{item.unit}}</text>
           </view>
-          <!-- 购物车 -->
+          <!-- 收藏 -->
           <!-- <view class='like-image' catchtap="addCartByHome" data-_id="{{item._id}}"> -->
-          <image src='../../images/icon/cart4.png' mode='aspectFit' catchtap="addCartByHome" data-_id="{{item._id}}"></image>
+
+          <image src='../../images/icon/love.png' mode='aspectFit' style="width=2prx" catchtap="addLoveByHome"          data-_id="{{item._id}}"></image>
+         <view class='sc'>
+            <text>收藏</text>
+          </view>
           <!-- </view> -->
           <!-- 销量 -->
           <!-- <view class='like-num'>添加</view>  -->
@@ -55,7 +59,7 @@
 <!-- 底部 -->
 <view class='homeBottom'>
   <view class='bottomLine'></view>
-  <view class='bottomWord'>coding by Voyz_Shen</view>
+  <view class='bottomWord'>品质消费,好而不贵。</view>
   <view class='bottomLine'></view>
 </view>
 

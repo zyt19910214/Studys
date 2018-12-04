@@ -7,30 +7,58 @@ Page({
     hasList: false,          // 列表是否有数据
     totalPrice: 0,           // 总价，初始为0
     selectAllStatus: false,    // 全选状态，默认全选
-    obj: {name: "hello"}
   },
 
+  // 获取用户openid
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        console.log('云函数获取到的openid:', res)
+        var openid = res.result.openid;
+        //console.log(openid) 
+      }
+    })
+  },
+  
   onLoad(e) {
-    // var self = this
-    // self.getTotalPrice();
-    // self.selectAll();
+    var that = this
+
+    that.setData({
+      isShow: true
+    })
+    // 获取openId
+    this.getOpenid();
+ 
   },
 
   onShow() {
-    var self = this
-    self.data.carts = app.globalData.carts
-    if (app.globalData.carts.length != 0) {
-      self.setData({
-        hasList: true,
+    let carts = this.data.carts;
+    console.log('now openid:',this.data )
+    app.getInfoWhere('love', { },
+      e => {
+        this.setData(
+          {carts:e.data}
+        )
+        
+      })
+    if (carts.length == 0 ) {
+      this.setData({
+        hasList: false
       });
-    } 
-    self.selectAll();
-    self.getTotalPrice();
+    } else {
+
+      this.setData({
+        hasList: true
+      });
+     
+    }
   },
 
   onHide: function () {
     var self = this
-    self.getTotalPrice();
+
     self.selectAll();
   },
 
@@ -47,7 +75,6 @@ Page({
       carts: carts
     });
     app.globalData.carts = carts
-    this.getTotalPrice();
   },
 
   /**
@@ -66,7 +93,7 @@ Page({
         hasList: false
       });
     } else {
-      this.getTotalPrice();
+      
     }
   },
 
@@ -86,61 +113,10 @@ Page({
       carts: carts
     });
     app.globalData.carts = carts
-    this.getTotalPrice();
   },
 
-  /**
-   * 绑定加数量事件
-   */
-  addCount(e) {
-    const index = e.currentTarget.dataset.index;
-    let carts = this.data.carts;
-    let num = carts[index].num;
-    num = num + 1;
-    carts[index].num = num;
-    this.setData({
-      carts: carts
-    });
-    app.globalData.carts = carts
-    this.getTotalPrice();
-  },
 
-  /**
-   * 绑定减数量事件
-   */
-  minusCount(e) {
-    const index = e.currentTarget.dataset.index;
-    const obj = e.currentTarget.dataset.obj;
-    let carts = this.data.carts;
-    let num = carts[index].num;
-    if (num <= 1) {
-      return false;
-    }
-    num = num - 1;
-    carts[index].num = num;
-    this.setData({
-      carts: carts
-    });
-    app.globalData.carts = carts
-    this.getTotalPrice();
-  },
 
-  /**
-   * 计算总价
-   */
-  getTotalPrice() {
-    let carts = this.data.carts;                  // 获取购物车列表
-    let total = 0;
-    for (let i = 0; i < carts.length; i++) {         // 循环列表得到每个数据
-      if (carts[i].selected) {                     // 判断选中才会计算价格
-        total += carts[i].num * carts[i].price;   // 所有价格加起来
-      }
-    }
-    this.setData({                                // 最后赋值到data中渲染到页面
-      carts: carts,
-      totalPrice: total.toFixed(1)
-    });
-    app.globalData.carts = carts    
-  }
+
 
 })

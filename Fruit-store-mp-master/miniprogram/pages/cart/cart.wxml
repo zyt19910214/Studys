@@ -1,5 +1,15 @@
 <!--miniprogram/pages/cart.wxml-->
 <view class="main">
+   <view class="header">
+        <!-- <image src="{{thumb}}" class="thumb"></image> -->
+        <view class="thumb">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class='nickname'>
+          <open-data type="userNickName"></open-data>
+        </view>
+        <!-- <text class="nickname">{{nickname}}</text> -->
+    </view>
     <view wx:if="{{hasList}}">
 
         <!-- 选项卡 -->
@@ -17,44 +27,22 @@
                 <text class="cart-pro-name">{{item.name}}</text>
                 <!-- 价格 -->
                 <text class="cart-pro-price">￥{{item.price}}</text>
-                <!-- 加/数量/减 -->
-                <view class="cart-count-box">
-                    <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
-                    <text class="cart-count-num">{{item.num}}</text>
-                    <text style='font-size:20rpx;'>{{item.unit}}</text>
-                    <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
-                </view>
+             
                 <!-- 删除 -->
                 <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
             </view>
         </view>
 
-        <!-- 底部导航 -->
-        <view class="cart-footer">
-            <!-- 全选图标 -->
-            <icon wx:if="{{selectAllStatus}}" type="success_circle" color="orange" class="total-select" bindtap="selectAll"/>
-            <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll"/>
-            <view class='footer-select'>
-              <text></text>
-            </view>
-            
-            <!-- 总价 -->
-            <view class="cart-toatl-price">￥{{totalPrice}}</view>
-            <!-- 支付按钮 -->
-            <view class="order-icon">
-                <navigator url="../orders/orders?totalPrice={{totalPrice}}">
-                  <view>确认支付</view>
-                </navigator>
-            </view>
-        </view>
+       
 
     </view>
 
-    <!-- 空购物车 -->
+    <!-- 无收藏 -->
     <view wx:else>
-        <view class="cart-no-data">购物车是空的哦~</view>
+    
+        <view class="cart-no-data">把喜欢的商品添加到这里来吧~</view>
         <navigator url='/pages/homepage/homepage' open-type="switchTab">
-          <view class='cartBtn'>去买水果</view>
+          <view class='cartBtn'>浏览商品</view>
         </navigator>
         
     </view>
