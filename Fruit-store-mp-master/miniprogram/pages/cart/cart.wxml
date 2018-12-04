@@ -16,11 +16,9 @@
         <view class="cart-box">
             <!-- 商品卡片 -->
             <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
-                <!-- 勾选图标 -->
-                <icon wx:if="{{item.selected}}" type="success" color="orange" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
-                <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
+               
                 <!-- 商品图片 -->
-                <navigator url="../details/details?id={{item.fruitID}}">
+                <navigator url="../detail/detail?id={{item.fruitID}}">
                   <image class="cart-thumb" src="{{item.imgUrl}}"></image>
                 </navigator>
                 <!-- 名称 -->

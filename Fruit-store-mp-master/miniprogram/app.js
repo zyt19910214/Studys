@@ -79,12 +79,15 @@ App({
   // 从集合中筛选数据
   getInfoWhere: function (setName,ruleObj,callback) {
     const db = wx.cloud.database()
+    const _ = db.command
+
     db.collection(setName).where(ruleObj)
       .get({
         success: callback,
         fail: console.error
       })
   },
+ 
 
   // 排序后取出数据
   getInfoByOrder: function (setName, ruleItem, orderFuc,callback) {

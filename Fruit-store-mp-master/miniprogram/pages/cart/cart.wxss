@@ -48,13 +48,15 @@ page{
 .cart-list .cart-thumb{
   position: absolute;
   top: 20rpx;
-  left: 85rpx;
-  width: 185rpx;
+  left: 70rpx;
   height: 185rpx;
+  width: 205rpx;
+  border: 1rpx;
 }
 .cart-list .cart-pro-name{
   padding-top: 15rpx;
-  font-size: 35rpx;
+  padding-left: 35rpx;
+  font-size: 25rpx;
   color: black;
   display: inline-block;
   width: 300rpx;

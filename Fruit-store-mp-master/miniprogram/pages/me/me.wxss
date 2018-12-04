@@ -19,7 +19,7 @@
   flex: 1;
   cursor: pointer;
   margin-top: 3rpx;
-  margin-left: 50px;
+  margin-left: 25px;
   padding: 2rpx;
   background: #fff;
 }

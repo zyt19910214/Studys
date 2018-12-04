@@ -9,56 +9,18 @@ Page({
     selectAllStatus: false,    // 全选状态，默认全选
   },
 
-  // 获取用户openid
-  getOpenid() {
-    let that = this;
-    wx.cloud.callFunction({
-      name: 'login',
-      complete: res => {
-        console.log('云函数获取到的openid:', res)
-        var openid = res.result.openid;
-        //console.log(openid) 
-      }
-    })
-  },
   
   onLoad(e) {
-    var that = this
-
-    that.setData({
-      isShow: true
-    })
-    // 获取openId
-    this.getOpenid();
- 
+   
   },
 
   onShow() {
-    let carts = this.data.carts;
-    console.log('now openid:',this.data )
-    app.getInfoWhere('love', { },
-      e => {
-        this.setData(
-          {carts:e.data}
-        )
-        
-      })
-    if (carts.length == 0 ) {
-      this.setData({
-        hasList: false
-      });
-    } else {
-
-      this.setData({
-        hasList: true
-      });
-     
-    }
+    this.getlove()
   },
+
 
   onHide: function () {
     var self = this
-
     self.selectAll();
   },
 
@@ -74,6 +36,7 @@ Page({
     this.setData({
       carts: carts
     });
+    console.log(carts)
     app.globalData.carts = carts
   },
 
@@ -112,8 +75,44 @@ Page({
       selectAllStatus: selectAllStatus,
       carts: carts
     });
-    app.globalData.carts = carts
   },
+  getlove (e){
+    app.getInfoWhere('love', {}, res => {
+     //console.log(res.data)
+     const id_list = []
+      for (let i = 0; i < res.data.length; i++) {
+        id_list.push(res.data[i]['id'])
+      }
+      // console.log(id_list)
+      const db = wx.cloud.database()
+      const _ = db.command
+   
+      app.getInfoWhere('fruit-board', { _id: _.in(id_list)}, e => {
+        //console.log(e)
+        this.setData({
+          carts: e.data
+        });
+        let carts = this.data.carts
+        if (carts.length == 0) {
+          this.setData({
+            hasList: false
+          });
+        } else {
+          this.setData({
+            hasList: true,
+
+          });
+
+        }
+
+      })
+
+       
+    })
+ 
+ 
+   
+  }
 
 
 
