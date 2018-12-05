@@ -14,7 +14,7 @@ App({
       cloudRoot : "clo140d-voyz-cloud-86f82a/",
       tmpNum: 0,
       tempFilePaths: "",
-      admin:["Aoph"],
+      admin: ["oenS94lGcw7qyDo0AZ7uWBqeo0Lg"],
       openId: null,
       appid: 'wxbdafae5940624214',
       mch_id: '1519277861',
@@ -63,9 +63,8 @@ App({
     const db = wx.cloud.database()
     db.collection(setName).add({
       data: infoObject,
-      success:callback,
-      fail: console.error
-    })
+   
+    }).then(callback)
   },
 
   // 从集合中取出数据

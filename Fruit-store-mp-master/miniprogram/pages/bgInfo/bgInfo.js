@@ -37,7 +37,6 @@ Page({
   addFruitInfo: function(e){
     const self = this
     // console.log(e)
-    // 获取本地图片
     new Promise((resolve,reject)=>{
       self.setData({
         fruitInfo: e.detail.value

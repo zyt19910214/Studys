@@ -7,15 +7,15 @@
     </view>
     <view class="board">
       <view class="board-item">
-        <image src="../../images/icon/fruit.png" />
+        <image src="../../images/icon/location.png" />
         <text>山东省临沂市义堂路 AO奥品汇义堂店</text>
       </view>
        <view class="board-item">
-        <image src="../../images/icon/fruit.png" />
+        <image src="../../images/icon/phone.png" />
         <text>联系电话：17629298189</text>
       </view>
       <view class="board-item">
-        <image src="../../images/icon/like.png" />
+        <image src="../../images/icon/info.png" />
         <text>店铺介绍：</text>
       </view>
     </view>

@@ -20,28 +20,11 @@ Page({
 
 
   onHide: function () {
-    var self = this
-    self.selectAll();
   },
 
-  /**
-   * 当前商品选中事件
-   */
-  selectList(e) {
-    var self = this
-    const index = e.currentTarget.dataset.index;
-    let carts = this.data.carts;
-    const selected = carts[index].selected;
-    carts[index].selected = !selected;
-    this.setData({
-      carts: carts
-    });
-    console.log(carts)
-    app.globalData.carts = carts
-  },
 
   /**
-   * 删除购物车当前商品
+   * 删除收藏的当前商品
    */
   deleteList(e) {
     const index = e.currentTarget.dataset.index;
@@ -60,22 +43,7 @@ Page({
     }
   },
 
-  /**
-   * 购物车全选事件
-   */
-  selectAll(e) {
-    let selectAllStatus = this.data.selectAllStatus;
-    selectAllStatus = !selectAllStatus;
-    let carts = this.data.carts;
 
-    for (let i = 0; i < carts.length; i++) {
-      carts[i].selected = selectAllStatus;
-    }
-    this.setData({
-      selectAllStatus: selectAllStatus,
-      carts: carts
-    });
-  },
   getlove (e){
     app.getInfoWhere('love', {}, res => {
      //console.log(res.data)
