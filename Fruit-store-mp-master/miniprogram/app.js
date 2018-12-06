@@ -17,8 +17,8 @@ App({
       admin: ["oenS94lGcw7qyDo0AZ7uWBqeo0Lg"],
       openId: null,
       appid: 'wxbdafae5940624214',
-      mch_id: '1519277861',
-      apikey: 'James487493259359826923695832443'
+ 
+  
     }
   },
 
@@ -30,6 +30,7 @@ App({
     this.getInfoWhere('love', { id:item.id,_openid:item._openid},
       e => {
         if (e.data.length != 0) {
+   
           wx.showToast({
             title: '收藏过啦！',
           })
@@ -99,17 +100,9 @@ App({
   },
 
   // 删除集合中的数据
-  deleteInfoFromSet: function (setName,fruitId) {
+  deleteInfoFromSet: function (setName,fruitId,callback) {
     const db = wx.cloud.database()
-      db.collection(setName).doc(fruitId).remove({
-      success: e=>{
-        wx.showToast({
-          title: '删除成功',
-        })
-        console.log(e)
-      },
-      fail: console.error
-    })
+    db.collection(setName).doc(fruitId).remove().then(callback).catch(console.error)
   },
 
   // 选择本地图片上传至云端

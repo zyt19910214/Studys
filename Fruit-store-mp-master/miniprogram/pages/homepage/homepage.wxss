@@ -28,6 +28,10 @@ page {
 .type-container .type-item {
   width: 25%;
   height: 60rpx;
+  display: inline-block;
+}
+.type-navbar{
+  white-space: nowrap;
 }
 
 .type-container .type-item view {

@@ -1,48 +1,50 @@
 <!--miniprogram/pages/cart.wxml-->
 <view class="main">
-   <view class="header">
-        <!-- <image src="{{thumb}}" class="thumb"></image> -->
-        <view class="thumb">
-          <open-data type="userAvatarUrl"></open-data>
-        </view>
-        <view class='nickname'>
-          <open-data type="userNickName"></open-data>
-        </view>
-        <!-- <text class="nickname">{{nickname}}</text> -->
+  <view class="header">
+    <!-- <image src="{{thumb}}" class="thumb"></image> -->
+    <view class="thumb">
+      <open-data type="userAvatarUrl"></open-data>
     </view>
-    <view wx:if="{{hasList}}">
-
-        <!-- 选项卡 -->
-        <view class="cart-box">
-            <!-- 商品卡片 -->
-            <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
-               
-                <!-- 商品图片 -->
-                <navigator url="../detail/detail?id={{item.fruitID}}">
-                  <image class="cart-thumb" src="{{item.imgUrl}}"></image>
-                </navigator>
-                <!-- 名称 -->
-                <text class="cart-pro-name">{{item.name}}</text>
-                <!-- 价格 -->
-                <text class="cart-pro-price">￥{{item.price}}</text>
-             
-                <!-- 删除 -->
-                <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
-            </view>
-        </view>
-
-       
-
+    <view class='nickname'>
+      <open-data type="userNickName"></open-data>
     </view>
+    <!-- <text class="nickname">{{nickname}}</text> -->
+  </view>
+  <view wx:if="{{hasList}}">
 
-    <!-- 无收藏 -->
-    <view wx:else>
-    
-        <view class="cart-no-data">把喜欢的商品添加到这里来吧~</view>
-        <navigator url='/pages/homepage/homepage' open-type="switchTab">
-          <view class='cartBtn'>浏览商品</view>
+    <!-- 选项卡 -->
+    <view class="cart-box">
+      <!-- 商品卡片 -->
+      <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+
+        <!-- 商品图片 -->
+        <navigator url="../detail/detail?id={{item.fruitID}}">
+          <image class="cart-thumb" src="{{item.imgUrl}}"></image>
         </navigator>
-        
+        <!-- 名称 -->
+        <text class="cart-pro-name">{{item.name}}</text>
+        <!-- 价格 -->
+        <text class="cart-pro-price">￥{{item.price}}</text>
+
+        <!-- 删除 -->
+        <text class="cart-del" bindtap="deleteList" data-index="{{index}}" data-_id="{{item._id}}">×</text>
+      </view>
     </view>
+
+
+
+  </view>
+
+  <!-- 无收藏 -->
+  <view wx:else>
+    <view class="title-box">
+      小傻瓜，还没找到自己心仪的商品吗～
+    </view>
+     <navigator url='/pages/homepage/homepage' open-type="switchTab">
+    <view class="to-index-btn" bindtap="toIndexPage">
+      去逛逛
+    </view>
+    </navigator>
+  </view>
 
 </view>

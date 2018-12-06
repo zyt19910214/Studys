@@ -5,8 +5,7 @@ Page({
   data: {
     isAdmin: -1,
     openid: '',
-    adiminArr: [
-      '',
+    adiminArr: [      
       'oenS94lGcw7qyDo0AZ7uWBqeo0Lg'
     ]
   },

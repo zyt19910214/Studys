@@ -7,13 +7,11 @@ Page({
    */
   data: {
     fruitDetail: {}, //水果信息
-    popUpHidden: true, //是否隐藏弹窗
-    popCartCount: 1, //购物车数量
     curIndex: 0,
     articleID: ""
   },
 
-  // 跳转至购物车
+  // 跳转收藏頁面
   goToCart: function() {
     // console.log('hhhh')
     wx.switchTab({
@@ -21,72 +19,26 @@ Page({
     })
   },
 
-  // 弹出购物车选项
-  addToCart: function() {
-    var that = this
-    that.setData({
-      popUpHidden: false
+
+
+  
+  // ------------加入收藏------------
+  addLoveByDetail: function (e) {
+    wx.showLoading({
+      title: 'loading',
     })
+    console.log(e)
+    var self = this
+    app.getInfoWhere('fruit-board', { _id: e.currentTarget.dataset._id },
+      e => {
+        //console.log(e.data["0"]._id)
+
+        app.isNotRepeteToLove({ id: e.data["0"]._id, _openid: this.data.openid })
+
+      }
+    )
   },
 
-  // 关闭弹窗
-  popCancel: function() {
-    var that = this
-    that.setData({
-      popUpHidden: true
-    })
-  },
-
-  // 数量加减
-  plusCount: function() {
-    var that = this
-    var tmp = that.data.popCartCount + 1
-    that.setData({
-      popCartCount: tmp
-    })
-  },
-  minusCount: function () {
-    var that = this
-    var tmp = that.data.popCartCount - 1
-    if(tmp === 0) tmp = 1
-    that.setData({
-      popCartCount: tmp
-    })
-  },
-
-  // 添加购物车
-  toCart: function () {
-    var that = this
-    var newCartItem = that.data.fruitDetail
-    newCartItem.num = that.data.popCartCount
-    // console.log(newCartItem)
-    app.isNotRepeteToCart(newCartItem)
-    that.setData({
-      popUpHidden: true
-    })
-    console.log(that.data)
-    app.addRowToSet('love', {good_id:that.data.fruitDetail._id}, e => {
-      console.log(e)
-      wx.showToast({
-        title: '收藏成功',
-      })
-    })
-    console.log(app.globalData.carts)        
-  },
-
-  // 立即购买
-  toBuy: function () {
-    var that = this
-    var newCartItem = that.data.fruitDetail
-    newCartItem.num = that.data.popCartCount
-    // console.log(newCartItem)
-    // app.globalData.carts.push(newCartItem)
-    app.isNotRepeteToCart(newCartItem)
-    // console.log(app.globalData.carts) 
-    wx.switchTab({
-      url: '/pages/cart/cart',
-    })
-  },
 
   // 详细信息切换
   bindTap(e) {
@@ -101,6 +53,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    wx.showLoading() 
     console.log(e._id)
     var that = this
     that.setData({
@@ -112,6 +65,7 @@ Page({
         that.setData({
           fruitDetail: e.data["0"]
         })
+        wx.hideLoading() 
       }
     )
   },

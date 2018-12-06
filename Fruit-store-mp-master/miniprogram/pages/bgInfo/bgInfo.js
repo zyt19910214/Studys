@@ -8,6 +8,8 @@ Page({
    */
   data: {
     fruitInfo: {},
+    goodList:[],
+    hasList:true,
     tmpUrl: "",
     delFruitId: "",
     cardNum: 1
@@ -25,6 +27,26 @@ Page({
     that.setData({
       cardNum: 2
     })
+    //获取当前商品信息
+    app.getInfoFromSet('fruit-board',{},e=>{
+   
+      this.setData({
+        goodList:e.data
+      })
+      let goodList = this.data.goodList
+      if (goodList.length == 0) {
+        this.setData({
+          hasList: false
+        });
+      } else {
+        this.setData({
+          hasList: true,
+
+        });
+
+      }
+      console.log(e)
+    })
   }, 
   tapTo3: function () {
     var that = this
@@ -33,7 +55,7 @@ Page({
     })
   },
 
-  // 获取水果信息表单
+  // 获取商品信息表单
   addFruitInfo: function(e){
     const self = this
     // console.log(e)
