@@ -7,6 +7,16 @@
   margin-left: 40rpx;
   text-align: center;
 }
+.fruit-item {
+  width:94%;
+  overflow: hidden;
+  margin-left:11px; 
+  margin-top:11px;
+  margin-bottom: 20rpx;
+  background-color: white;
+  border:2px solid rgb(253, 173, 193);
+
+}
 
 .board {
   display: flex;

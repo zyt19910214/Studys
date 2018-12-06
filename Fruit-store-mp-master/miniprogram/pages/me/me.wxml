@@ -1,9 +1,7 @@
 <view class="main">
     <!--展示商铺信息 -->
-    
-    <image src="../../images/icon/timg3.jpg" class="slide-image" width="750rpx" height="500rpx" mode='aspectFill'/>
-    <view class="title">
-      AO奥品汇义堂店欢迎您
+    <view class="fruit-item">
+    <image src="../../images/icon/title.jpg" class="slide-image" width="600rpx" height="500rpx" />
     </view>
     <view class="board">
       <view class="board-item">
