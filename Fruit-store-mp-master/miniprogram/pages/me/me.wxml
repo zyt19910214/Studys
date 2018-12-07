@@ -1,29 +1,38 @@
 <view class="main">
-    <!--展示商铺信息 -->
+  <!--展示商铺信息 -->
+  <view class="title-board">
     <view class="fruit-item">
-    <image src="../../images/icon/title.jpg" class="slide-image" width="600rpx" height="500rpx" />
+      <image src="../../images/icon/title.jpg" class="slide-image" width="600rpx" height="500rpx" />
     </view>
-    <view class="board">
-      <view class="board-item">
-        <image src="../../images/icon/location.png" />
-        <text>山东省临沂市义堂路 AO奥品汇义堂店</text>
-      </view>
-       <view class="board-item">
-        <image src="../../images/icon/phone.png" />
-        <text>联系电话：17629298189</text>
-      </view>
-      <view class="board-item">
-        <image src="../../images/icon/info.png" />
-        <text>店铺介绍：</text>
-      </view>
+    <view class='title'>AO澳品汇义堂店</view>
+  </view>
+  <view class="board">
+
+    <view class="board-item" bindtap="openLocation">
+      <image src="../../images/icon/location.png" />
+      <view class="location" > 山东省临沂市兰山区义堂中心卫生院东20米路南</view>
+      <view class="navigator-arrow"></view>
     </view>
 
-    <!-- 后台管理 -->
-    <view class="bgInfo {{openid}}" bindtap='goToBgInfo' hidden="{{!(isAdmin >= 0)}}">后台管理</view>
-      <!-- 底部 -->
-    <view class='homeBottom'>
-      <view class='bottomLine'></view>
-      <view class='bottomWord'>品质消费,好而不贵。</view>
-      <view class='bottomLine'></view>
+    <view class="board-item" bindtap="callPhone">
+      <image src="../../images/icon/phone.png" />
+      <view class="location2" data-phone='17629298189'>17629298189</view>
+      <view class="navigator-arrow"></view>
     </view>
+
+    <view class="board-item">
+      <image src="../../images/icon/info.png" />
+      <view >营业时间：上午10:00-晚23:00</view>
+    </view>
+
+  </view>
+</view>
+
+<!-- 后台管理 -->
+<view class="bgInfo {{openid}}" bindtap='goToBgInfo' hidden="{{!(isAdmin >= 0)}}">后台管理</view>
+<!-- 底部 -->
+<view class='homeBottom'>
+  <view class='bottomLine'></view>
+  <view class='bottomWord'>品质消费,好而不贵。</view>
+  <view class='bottomLine'></view>
 </view>

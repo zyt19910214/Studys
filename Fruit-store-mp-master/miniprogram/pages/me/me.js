@@ -18,7 +18,18 @@ Page({
   onShow() {
   
   },
-
+  callPhone(e) {
+    //console.log(e)
+    wx.makePhoneCall({
+      phoneNumber: '17629298189',
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
+    })
+  },
   // 获取用户openid
   getOpenid() {
     var that = this;
@@ -40,5 +51,17 @@ Page({
     wx.navigateTo({
       url: '/pages/bgInfo/bgInfo',
     })
+  },
+  openLocation(e) {
+    console.log(e)
+    const value = e.detail.value
+    console.log(value)
+    wx.openLocation({
+      longitude: 118.24065,
+      latitude: 35.14640,
+      name:"澳品汇义堂店",
+      address:"山东省临沂市兰山区义堂中心卫生院东20米路南"
+    })
   }
+  
 })

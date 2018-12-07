@@ -38,7 +38,7 @@
 
   <!-- 底部导航 -->
   <view class='detail-nav'>
-    <!-- 购物车 -->
+    <!-- 收藏 -->
     <view class='cart' bindtap='goToCart'  >
       <image src="../../images/tabBar/cart.png" mode='scaleToFill'></image>
       <view>我的收藏</view>

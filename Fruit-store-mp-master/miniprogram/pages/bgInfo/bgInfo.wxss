@@ -244,7 +244,7 @@ Page {
   margin-right: 30rpx;
 }
 
-/* 空购物车 */
+/* 空收藏 */
 .cart-no-data {
   text-align: center;
   color: rgb(143, 142, 142);
