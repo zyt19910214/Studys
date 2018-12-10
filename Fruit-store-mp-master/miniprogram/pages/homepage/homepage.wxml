@@ -48,7 +48,7 @@
 
             <image src='../../images/icon/love.png' mode='aspectFit' style="width=2prx" catchtap="addLoveByHome" data-_id="{{item._id}}"></image>
             <view class='sc'>
-              <text>收藏</text>
+              <text>许愿</text>
             </view>
             <!-- </view> -->
             <!-- 销量 -->

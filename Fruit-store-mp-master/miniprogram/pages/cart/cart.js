@@ -20,7 +20,7 @@ Page({
       hasList: true
     });
     wx.showLoading({
-      title: 'loading',
+      title: '加载中',
     })
     this.getlove()
   },
@@ -35,7 +35,7 @@ Page({
    */
   deleteList(e) {
     wx.showLoading({
-      title: 'loading',
+      title: '加载中',
     })
     const index = e.currentTarget.dataset.index;
    

@@ -41,9 +41,9 @@
     <!-- 收藏 -->
     <view class='cart' bindtap='goToCart'  >
       <image src="../../images/tabBar/cart.png" mode='scaleToFill'></image>
-      <view>我的收藏</view>
+      <view>心愿单</view>
     </view>
-    <view class='addToCart' bindtap='addLoveByDetail' data-_id="{{fruitDetail._id}}">加入收藏</view>
+    <view class='addToCart' bindtap='addLoveByDetail' data-_id="{{fruitDetail._id}}">加入心愿单</view>
   </view>
 
   

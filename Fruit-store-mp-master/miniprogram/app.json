@@ -1,5 +1,6 @@
 {
   "cloud": true,
+  "enablePullDownRefresh": true,
   "pages": [
     "pages/homepage/homepage",
     "pages/authentic/index",
@@ -28,7 +29,7 @@
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "收藏",
+        "text": "心愿单",
         "iconPath": "images/tabBar/cart-sel.png",
         "selectedIconPath": "images/tabBar/cart.png"
       },

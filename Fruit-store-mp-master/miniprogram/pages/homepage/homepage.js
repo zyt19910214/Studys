@@ -4,19 +4,14 @@
 const app = getApp()
 
 Page({
-
-  onPullDownRefresh() {
-    wx.showToast({
-      title: 'loading...',
-      icon: 'loading'
-    })
-    //console.log('onPullDownRefresh', new Date())
-  },
   
   data: {
     swiperImgNo: 1,
     imgSwiperUrl: '',
     fruitInfo: [],
+    curPage: 1,
+    pageSize: 10,
+    loadingMoreHidden: true,
     typeCat: [
       { id: 0, name: "全部商品" },
       { id: 1, name: "高档套盒" },
@@ -33,7 +28,7 @@ Page({
       { id: 12, name: "休闲娱乐" },
       
     ],
-    activeTypeId:0,
+    activeTypeId:"0",
     isShow:false,
     toView: "t0",
     openid: ''
@@ -62,7 +57,7 @@ Page({
   // ------------加入收藏------------
   addLoveByHome: function(e) {
     wx.showLoading({
-      title: 'loading',
+      title: '加载中',
     }) 
     //console.log(e.currentTarget.dataset)
     var self = this
@@ -80,36 +75,35 @@ Page({
   // ------------分类展示切换---------
   typeSwitch: function(e) {
    //console.log(e)
-    getCurrentPages()["0"].setData({
-      activeTypeId: parseInt(e.currentTarget.id)
-    })
+ 
+    console.log(this.data.activeTypeId)
+    this.setData({
+      activeTypeId: e.currentTarget.id,
+      loadingMoreHidden:true,
+      curPage:1,
+      fruitInfo: []
+    });
     switch (e.currentTarget.id) {
       // 全部展示
       case '0':
-        app.getInfoFromSet('fruit-board', {},
-          e => {
-            // console.log(e.data)
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
+        this.setData({
+          fruitInfo: []
+        })
+        this.getdata({})
         break;
-      // 今日特惠
+      // 高档套盒
       case '1':
-        app.getInfoWhere('fruit-board', {myClass:'1'},
-          e => {
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
+        this.setData({
+          fruitInfo: []
+        })
+        this.getdata({})
+     
         break;
       // 销量排行
       case '2':
         app.getInfoByOrder('fruit-board','purchaseFreq','desc',
           e => {
-            getCurrentPages()["0"].setData({
+            this.setData({
               fruitInfo: e.data
             })
           }
@@ -119,7 +113,7 @@ Page({
       case '3':
         app.getInfoWhere('fruit-board', { recommend: '1' },
           e => {
-            getCurrentPages()["0"].setData({
+            this.setData({
               fruitInfo: e.data
             })
           }
@@ -155,7 +149,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.showLoading({
-      title: 'loading',
+      title: '加载中',
     })
      
     that.setData({
@@ -166,24 +160,19 @@ Page({
   },
 
   onReady: function () {
-    // console.log(getCurrentPages()["0"].data)
+    //console.log(getCurrentPages()["0"].data)
     
   },
 
 
   onShow: function () {
-    var that = this
-    // console.log(that.data)
-    app.getInfoFromSet('fruit-board', {},
-      e => {
-        //console.log(e.data)
-        getCurrentPages()["0"].setData({
-          fruitInfo: e.data,
-          isShow: true
-        })
-        wx.hideLoading()
-      }
-    )
+    this.setData({
+      curPage: 1,
+      loadingMoreHidden: true,
+      fruitInfo:[]
+    });
+
+    this.getdata({})
   },
 
   onHide: function () {
@@ -193,12 +182,73 @@ Page({
   onUnload: function () {
 
   },
-
+  getdata: function (filter){
+    console.log(filter)
+    wx.showLoading({
+      title: '加载中',
+    })
+    var that = this
+    // console.log(that.data)
+    wx.cloud.callFunction({
+      name: 'pageination',
+      data: {
+        dbName: 'fruit-board',
+        filter: filter,
+        pageIndex: this.data.curPage,
+        pageSize: this.data.pageSize,
+      }
+    }).then(res => {
+      //console.log(res.result.haseMore)
+      if (!res.result.haseMore){
+        this.setData({
+          loadingMoreHidden: false
+        });
+      }
+      
+      let goods = this.data.fruitInfo
+      for(var i =0;i<res.result.data.length;i++){
+        goods.push(res.result.data[i])
+      }
+      console.log(goods)
+      this.setData({
+        fruitInfo:goods,
+        isShow: true
+      })
+      wx.hideLoading()
+    })
+  },
   onPullDownRefresh: function () {
-
+    this.setData({
+      curPage: 1
+    });
+    this.getdata({})
+  
   },
 
   onReachBottom: function () {
+    if (this.data.loadingMoreHidden){
+      this.setData({
+        curPage: this.data.curPage + 1,
+      });
+      if (this.data.activeTypeId == 0){
+        this.getdata({})
+      } else{
+        console.log('111111111')
+        this.getdata({ myClass:this.data.activeTypeId})
+      }
+     
+    }else{
+      wx.showToast({
+        title: '没有更多啦',
+        icon: '',
+        image: '',
+        duration: 500,
+        mask: true,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
 
   },
 

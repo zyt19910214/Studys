@@ -25,7 +25,7 @@ Page({
   // ------------加入收藏------------
   addLoveByDetail: function (e) {
     wx.showLoading({
-      title: 'loading',
+      title: '加载中',
     })
     console.log(e)
     var self = this

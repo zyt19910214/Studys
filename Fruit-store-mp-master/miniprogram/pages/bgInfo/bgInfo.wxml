@@ -12,9 +12,9 @@
     <view class='InfoBottom'></view>
     <view class='fruit-board'>
       <form bindsubmit='addFruitInfo' bindreset='resetFruitInfo'>
-        <view>水果信息</view>
+        <view>商品信息</view>
         <view style='height:40rpx;'></view>
-        <input name='fruitID' placeholder='水果编号'></input>
+        <input name='fruitID' placeholder='商品编号'></input>
         <input name='name' placeholder='水果名称'></input>
         <input name='iLike' placeholder='点赞数'></input>
         <input name='price' placeholder='价格'></input>

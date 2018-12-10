@@ -32,7 +32,7 @@ App({
         if (e.data.length != 0) {
    
           wx.showToast({
-            title: '收藏过啦！',
+            title: '许过愿啦！',
           })
 
         } else {
@@ -40,7 +40,7 @@ App({
           this.addRowToSet('love', { id: item.id }, e1 => {
             console.log(e1)
             wx.showToast({
-              title: '已收藏',
+              title: '许愿成功',
             })
           })
         }
