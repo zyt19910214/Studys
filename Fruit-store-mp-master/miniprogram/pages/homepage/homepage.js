@@ -9,6 +9,7 @@ Page({
     swiperImgNo: 1,
     imgSwiperUrl: '',
     fruitInfo: [],
+    goodsinfo:{},
     curPage: 1,
     pageSize: 10,
     loadingMoreHidden: true,
@@ -28,7 +29,7 @@ Page({
       { id: 12, name: "休闲娱乐" },
       
     ],
-    activeTypeId:"0",
+    activeTypeId:0,
     isShow:false,
     toView: "t0",
     openid: ''
@@ -76,50 +77,14 @@ Page({
   typeSwitch: function(e) {
    //console.log(e)
  
-    console.log(this.data.activeTypeId)
+    console.log(this.data.goodsinfo)
     this.setData({
-      activeTypeId: e.currentTarget.id,
+      activeTypeId: parseInt(e.currentTarget.id),
       loadingMoreHidden:true,
       curPage:1,
       fruitInfo: []
     });
-    switch (e.currentTarget.id) {
-      // 全部展示
-      case '0':
-        this.setData({
-          fruitInfo: []
-        })
-        this.getdata({})
-        break;
-      // 高档套盒
-      case '1':
-        this.setData({
-          fruitInfo: []
-        })
-        this.getdata({})
-     
-        break;
-      // 销量排行
-      case '2':
-        app.getInfoByOrder('fruit-board','purchaseFreq','desc',
-          e => {
-            this.setData({
-              fruitInfo: e.data
-            })
-          }
-        )
-        break;
-      // 店主推荐
-      case '3':
-        app.getInfoWhere('fruit-board', { recommend: '1' },
-          e => {
-            this.setData({
-              fruitInfo: e.data
-            })
-          }
-        )
-        break;
-    }
+    this.onswitch()
   },
   tap() {
     let toView = this.data.toView
@@ -166,13 +131,27 @@ Page({
 
 
   onShow: function () {
-    this.setData({
-      curPage: 1,
-      loadingMoreHidden: true,
-      fruitInfo:[]
-    });
-
-    this.getdata({})
+    this.onswitch()
+   
+  },
+  onswitch:function(){
+    let now = this.data.goodsinfo
+    let id = this.data.activeTypeId.toString()
+    //如果已经加载过数据直接赋值
+    if (now.hasOwnProperty(id)) {
+      console.log(now[id])
+      this.setData({
+        fruitInfo: now[id].goods
+      });
+      //如果不存在进行数据加载
+    } else {
+      this.data.goodsinfo[this.data.activeTypeId.toString()] = { curPage: 1, goods: [] }
+      if (id == '0') {
+        this.getdata({})
+      } else {
+        this.getdata({ myClass: id })
+      }
+    }
   },
 
   onHide: function () {
@@ -187,31 +166,37 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    var that = this
-    // console.log(that.data)
+    
+    console.log(this.data.goodsinfo)
+    let id = this.data.activeTypeId.toString()
     wx.cloud.callFunction({
       name: 'pageination',
       data: {
         dbName: 'fruit-board',
         filter: filter,
-        pageIndex: this.data.curPage,
+        pageIndex: this.data.goodsinfo[id].curPage,
         pageSize: this.data.pageSize,
       }
     }).then(res => {
       //console.log(res.result.haseMore)
-      if (!res.result.haseMore){
-        this.setData({
-          loadingMoreHidden: false
-        });
-      }
+
+      // if (!res.result.haseMore){
+      //   this.setData({
+      //     loadingMoreHidden: false
+      //   });
+      // }
       
-      let goods = this.data.fruitInfo
-      for(var i =0;i<res.result.data.length;i++){
-        goods.push(res.result.data[i])
-      }
+      this.data.goodsinfo
+      let goods = [...this.data.goodsinfo[id].goods, ...res.result.data]
+      
       console.log(goods)
+      let page = this.data.goodsinfo[id].curPage
+      let info = this.data.goodsinfo
+      info[id] = {curPage:page,goods:goods,loadingMoreHidden:res.result.haseMore}
+      console.log(page)
       this.setData({
         fruitInfo:goods,
+        goodsinfo:info,
         isShow: true
       })
       wx.hideLoading()
@@ -226,17 +211,14 @@ Page({
   },
 
   onReachBottom: function () {
-    if (this.data.loadingMoreHidden){
+    let info = this.data.goodsinfo
+    if (info[this.data.activeTypeId.toString()].loadingMoreHidden){
+      info[this.data.activeTypeId.toString()].curPage = info[this.data.activeTypeId.toString()].curPage+1;
+      this.getdata({});
       this.setData({
-        curPage: this.data.curPage + 1,
+          goodsinfo: info
       });
-      if (this.data.activeTypeId == 0){
-        this.getdata({})
-      } else{
-        console.log('111111111')
-        this.getdata({ myClass:this.data.activeTypeId})
-      }
-     
+   
     }else{
       wx.showToast({
         title: '没有更多啦',
